@@ -1,0 +1,25 @@
+<resources>
+    <!--页面标题-->
+    <string name="app_name">情境生活</string>
+
+    <string name="app_data">实时数据</string>>
+
+    <string name="app_settings">设     置</string>>
+    <string name="about_us">关于我们</string>
+
+
+    <string name="drawer_open">opened</string>
+    <string name="drawer_close">closed</string>
+
+
+    <string name="showInfo_name">传感器信息</string>
+    <string name="GPS">GPS信息</string>
+    <string name="orientation">方向传感器</string>
+    <string name="gyro">陀螺仪传感器</string>
+    <string name="magnetic">磁场传感器</string>
+    <string name="gravity">重力传感器</string>
+    <string name="linearAcc">线性加速度传感器</string>
+    <string name="temperature">温度传感器</string>
+    <string name="light">光传感器</string>
+    <string name="pressure">压力传感器</string>
+</resources>

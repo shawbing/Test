@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="device_memory"
+        android:title="存储设置" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="debug_db_slow"
+            android:persistent="true"
+            android:summary="手机剩余的存储空间不多\n注意：勾选此项，本软件将不能继续存储数据了"
+            android:title="存储不足" />
+    </PreferenceCategory>
+
+    <PreferenceCategory  android:key="normal"
+        android:title="一般设置">
+<!--电池-->
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="status_battery"
+            android:persistent="true"
+            android:summary="记录电池的使用情况"
+            android:title="电池" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="sensors"
+        android:summary="Default sensors"
+        android:title="传感器设置" >
+
+<!--定位信息-->
+        <PreferenceScreen
+            android:key="locations"
+            android:summary="通过GPS或网络，获取大概的定位信息"
+            android:title="定位" >
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="status_location_gps"
+                android:persistent="true"
+                android:summary="获取GPS定位信息"
+                android:title="激活GPS定位" />
+
+            <EditTextPreference
+                android:defaultValue="180"
+                android:dependency="status_location_gps"
+                android:key="frequency_location_gps"
+                android:persistent="true"
+                android:inputType="number"
+                android:summary="X in seconds (default = 180). 0 is always on."
+                android:title="GPS更新频率" />
+            <EditTextPreference
+                android:defaultValue="150"
+                android:dependency="status_location_gps"
+                android:key="min_location_gps_accuracy"
+                android:persistent="true"
+                android:inputType="number"
+                android:summary="Desired GPS accuracy in meters (default = 150). 0 keeps GPS always on."
+                android:title="GPS定位精度" />
+
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="status_location_network"
+                android:persistent="true"
+                android:summary="Network triangulation location tracking"
+                android:title="激活网络定位" />
+
+            <EditTextPreference
+                android:defaultValue="300"
+                android:dependency="status_location_network"
+                android:key="frequency_location_network"
+                android:persistent="true"
+                android:inputType="number"
+                android:summary="X in seconds (default = 300). 0 will keep network triangulation always on."
+                android:title="网络定位频率" />
+            <EditTextPreference
+                android:defaultValue="1500"
+                android:dependency="status_location_network"
+                android:key="min_location_network_accuracy"
+                android:persistent="true"
+                android:inputType="number"
+                android:summary="Desired network accuracy in meters (default = 1500). 0 keeps network triangulation always on."
+                android:title="网络定位精度" />
+            <EditTextPreference
+                android:defaultValue="300"
+                android:dependency="status_location_gps"
+                android:key="location_expiration_time"
+                android:persistent="true"
+                android:inputType="number"
+                android:summary="300 seconds"
+                android:title="信息失效时间" />
+        </PreferenceScreen>
+<!--光线信息-->
+        <PreferenceScreen
+            android:key="light"
+            android:summary="Ambient light (lux) *"
+            android:title="光线" >
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:key="status_light"
+                android:persistent="true"
+                android:title="激活" />
+
+            <ListPreference
+                android:dependency="status_light"
+                android:defaultValue="200000"
+                android:entries="@array/frequency_readable"
+                android:entryValues="@array/frequency_values"
+                android:key="frequency_light"
+                android:persistent="true"
+                android:title="更新频率" />
+
+            <PreferenceCategory
+                android:key="Current_Lights"
+                android:title="当前光线传感器的值" >
+
+                <EditTextPreference
+                    android:key="current_light"
+                    android:dependency="status_light"
+                    android:persistent="true"
+                    android:selectable="false"
+                    android:summary="光感值:" />
+
+            </PreferenceCategory>
+
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
